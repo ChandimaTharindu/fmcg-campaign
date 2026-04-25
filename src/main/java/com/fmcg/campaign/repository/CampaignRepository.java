@@ -11,4 +11,8 @@ public interface CampaignRepository extends JpaRepository<Campaign, Long> {
     List<Campaign> findByLocationIgnoreCase(String location);
 
     List<Campaign> findByStatusAndLocationIgnoreCase(CampaignStatus status, String location);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CampaignRepository extends JpaRepository<Campaign, Long> {
+
 }
