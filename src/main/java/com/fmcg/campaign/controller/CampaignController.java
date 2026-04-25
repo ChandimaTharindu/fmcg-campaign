@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CampaignController {
 
     private final CampaignService campaignService;
-    private final BillingService billingService;
+//    private final BillingService billingService;
 
     @PostMapping
     public ResponseEntity<CampaignResponse> create(@Valid @RequestBody CreateCampaignRequest request) {
@@ -74,15 +74,15 @@ public class CampaignController {
         return ResponseEntity.ok(campaignService.updateStatus(campaignId, request));
     }
 
-    @PostMapping("/billing")
-    public ResponseEntity<BillingResponse> billing(@Valid @RequestBody BillingRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(billingService.createBilling(request));
-    }
-
-    @GetMapping("/{campaignId}/billing")
-    public ResponseEntity<List<BillingResponse>> getBilling(
-            @PathVariable Long campaignId,
-            @RequestParam(required = false) Long userId) {
-        return ResponseEntity.ok(billingService.getBillingByCampaign(campaignId, userId));
-    }
+//    @PostMapping("/billing")
+//    public ResponseEntity<BillingResponse> billing(@Valid @RequestBody BillingRequest request) {
+//        return ResponseEntity.status(HttpStatus.CREATED).body(billingService.createBilling(request));
+//    }
+//
+//    @GetMapping("/{campaignId}/billing")
+//    public ResponseEntity<List<BillingResponse>> getBilling(
+//            @PathVariable Long campaignId,
+//            @RequestParam(required = false) Long userId) {
+//        return ResponseEntity.ok(billingService.getBillingByCampaign(campaignId, userId));
+//    }
 }
