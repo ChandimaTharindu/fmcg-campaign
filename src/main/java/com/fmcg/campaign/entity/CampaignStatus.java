@@ -1,7 +1,7 @@
 package com.fmcg.campaign.entity;
 
 public enum CampaignStatus {
-    DRAFT,
+    IN_PROGRESS,
     ACTIVE,
     COMPLETE
 }
