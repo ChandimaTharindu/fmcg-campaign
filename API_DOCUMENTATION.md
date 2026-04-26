@@ -354,4 +354,40 @@
 =======
 
 > Note: Your original names had spelling variations (`campain`, `campaign`). API paths are kept as requested (`campain`) for compatibility.
+> 
+> # User API Documentation
+
+## Security
+All `/api/users` endpoints are restricted to users with the `ADMIN` role.
+
+- Security config enforces `hasRole("ADMIN")` for:
+  - `POST /api/users`
+  - `GET /api/users/**`
+- Controller also applies `@PreAuthorize("hasRole('ADMIN')")`.
+
+## Endpoints
+
+### Create User
+- **Method**: `POST`
+- **Path**: `/api/users`
+- **Role**: `ADMIN`
+- **Body**: `UserResponse` JSON structure
+- **Response**: `201 Created` with created `UserResponse`
+
+### Get User By ID
+- **Method**: `GET`
+- **Path**: `/api/users/{userId}`
+- **Role**: `ADMIN`
+- **Response**: `200 OK` with `UserResponse`
+
+### Get All Users
+- **Method**: `GET`
+- **Path**: `/api/users`
+- **Role**: `ADMIN`
+- **Response**: `200 OK` with `List<UserResponse>`
+
+## OpenAPI/Swagger Notes
+The controller includes OpenAPI annotations:
+- `@Tag` for controller grouping
+- `@Operation` for endpoint summaries and descriptions
 

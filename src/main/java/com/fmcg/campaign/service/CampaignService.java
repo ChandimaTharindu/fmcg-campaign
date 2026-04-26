@@ -1,5 +1,7 @@
 package com.fmcg.campaign.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fmcg.campaign.dto.AddCampaignProductRequest;
 import com.fmcg.campaign.dto.AssignCampaignUserRequest;
 import com.fmcg.campaign.dto.BillingRequest;
@@ -63,20 +65,21 @@ public class CampaignService {
     }
 
     public CampaignResponse createCampaign(CreateCampaignRequest request) {
+
         AppUser user = getUser(request.userId());
         if (request.toDateTime().isBefore(request.fromDateTime())) {
             throw new BusinessException("INVALID_CAMPAIGN_RANGE", "toDateTime must be greater than fromDateTime");
         }
 
-        Campaign campaign = new Campaign();
-        campaign.setName(request.name());
-        campaign.setFromDateTime(request.fromDateTime());
-        campaign.setToDateTime(request.toDateTime());
-        campaign.setCampaignLocation(request.campaignLocation());
-        campaign.setLocation(request.location());
-        campaign.setStatus(request.status());
-        campaign.setUser(user);
-        return toCampaignResponse(campaignRepository.save(campaign));
+            Campaign campaign = new Campaign();
+            campaign.setName(request.name());
+            campaign.setFromDateTime(request.fromDateTime());
+            campaign.setToDateTime(request.toDateTime());
+            campaign.setCampaignLocation(request.campaignLocation());
+            campaign.setLocation(request.location());
+            campaign.setStatus(request.status());
+            campaign.setUser(user);
+            return toCampaignResponse(campaignRepository.save(campaign));
     }
 
     public Campaign createCampaign(CampaignRequest request) {
