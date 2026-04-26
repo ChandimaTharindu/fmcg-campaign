@@ -33,7 +33,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class CampaignController {
 
     private final CampaignService campaignService;
-//    private final BillingService billingService;
 
     @PostMapping
     public ResponseEntity<CampaignResponse> create(@Valid @RequestBody CreateCampaignRequest request) {
