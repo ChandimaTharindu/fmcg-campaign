@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "eb8478a6-edb0-47e4-bd8c-0efde561299d",
+		"name": "FMCG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40061341"
+	},
+	"item": [
+		{
+			"name": "Creat users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJpYXQiOjE3NzcxNDE3NzMsImV4cCI6MTc3NzE0NTM3M30.qbglQkD3jgA-al_en2NBw5mUpXZpmu2PUMWk4p7E72Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 101,\r\n  \"userName\": \"chandima\",\r\n  \"contactNumber\": \"0714369538\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_campaigns",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJpYXQiOjE3NzcxODA0OTgsImV4cCI6MTc3NzE4NDA5OH0.xdwm1w5CksuwJnV0cUZj38MhqJF-YZ6BAyxqU3RQx5E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1001,\r\n    \"name\": \"Summer Promo\",\r\n    \"fromDateTime\": \"2026-05-01T09:00:00\",\r\n    \"toDateTime\": \"2026-05-31T20:00:00\",\r\n    \"campaignLocation\": \"Central Mall\",\r\n    \"location\": \"Chicago\",\r\n    \"status\": \"DRAFT\",\r\n    \"userId\": 101\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/campaigns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"campaigns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_Products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX0FETUlOIn1dLCJpYXQiOjE3NzcxODA0OTgsImV4cCI6MTc3NzE4NDA5OH0.xdwm1w5CksuwJnV0cUZj38MhqJF-YZ6BAyxqU3RQx5E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Soap\",\r\n    \"price\": 35.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth_token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_products_To_Campain",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": 1,\r\n    \"discount\": 5.0,\r\n    \"userId\": 101\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/campaigns/{campaignId}/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"{campaignId}",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Campaign_by_Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/campaigns/{campaignId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"{campaignId}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Campaign User",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 102\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/campaigns/{campaignId}/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"{campaignId}",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Campaign Status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"COMPLETE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/campaigns/{campaignId}/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"{campaignId}",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Campaign Billing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"campaignId\": 1001,\r\n    \"userId\": 101,\r\n    \"productId\": 1,\r\n    \"qty\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/campaigns/billing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"billing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Campaign Billing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/campaigns/billing/{{campainId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"campaigns",
+						"billing",
+						"{{campainId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSalesReport",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/reports/campaigns/{{campainId}}/sales",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"reports",
+						"campaigns",
+						"{{campainId}}",
+						"sales"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
