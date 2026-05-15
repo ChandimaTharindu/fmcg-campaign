@@ -5,7 +5,7 @@ spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/fmcg_campaign?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
     username: ${SPRING_DATASOURCE_USERNAME:root}
-    password: ${SPRING_DATASOURCE_PASSWORD:1234}
+    password: ${SPRING_DATASOURCE_PASSWORD:DesLbDev001#}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -18,7 +18,8 @@ spring:
     init:
       mode: never
 
-  security:
-    jwt:
-      secret: VGhpc0lzQVNlY3VyZVNlY3JldEtleUZvckpXVEF1dGgxMjM0NTY3ODkw
-      expiration-seconds: 3600
+security:
+  jwt:
+    secret: VGhpc0lzQVNlY3VyZVNlY3JldEtleUZvckpXVEF1dGgxMjM0NTY3ODkw
+    expiration-seconds: 3600
+
